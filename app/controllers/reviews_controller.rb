@@ -10,7 +10,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(restaurant_params)
     @review.restaurant = @restaurant
     if @review.save
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_path(@restaurant),
+                  notice: 'Review was successfully created.'
     else
       render :new
     end
